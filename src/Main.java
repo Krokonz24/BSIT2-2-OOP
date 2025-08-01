@@ -45,9 +45,9 @@ public class Main {
         int Project = Scan.nextInt();
 
         System.out.print("Input your scores in your Attendance: ");
-        int Atten = Scan.nextInt();
+        int AttendancePercentage = Scan.nextInt();
 
-        int allOverScore = Midterm + Final + Project + Atten;
+        int allOverScore = Midterm + Final + Project + AttendancePercentage;
 
         double averageScore = allOverScore / 400.0 * 100;
 
