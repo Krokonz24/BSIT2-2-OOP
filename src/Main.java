@@ -1,30 +1,37 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== EMPLOYEE MANAGEMENT SYSTEM ===\n");
+        PetService service = new PetService();
 
-        Manager manager = new Manager("Alice Smith", 2001, 80000, "Engineering", 15000, 8);
-        Developer developer = new Developer("Bob Johnson", 2002, 70000, "Engineering", "Java", 5);
-        Intern intern = new Intern("Charlie Brown", 2003, 30000, "Engineering", "Tech University", true);
-
-        System.out.println();
-
-        System.out.println("=== Employee Details ===");
-        manager.displayInfo();
-        manager.work();
-        System.out.println("Monthly Salary: $" + manager.calculateSalary() + ".0");
+        System.out.println("Basic checkup: $" + service.calculateFee());
+        System.out.println("Checkup with vaccination: $" + service.calculateFee(true));
+        System.out.println("Full service: $" + service.calculateFee(true, true));
+        System.out.println("Emergency: $" + service.calculateFee("emergency"));
 
         System.out.println();
+        System.out.println("Welcome to the Pet Clinic!");
+        System.out.println("==========================");
 
-        System.out.println("=== Employee Details ===");
-        developer.displayInfo();
-        developer.work();
-        System.out.println("Monthly Salary: $" + developer.calculateSalary() + ".0");
+        Pet dog = new TrainableDog("Buddy", 3);
+        Pet cat = new Cat("Whiskers", 2);
+        Pet bird = new TrainableBird("Tweety", 1);
+
+        dog.displayInfo();
+        dog.makeSound();
+
+        cat.displayInfo();
+        cat.makeSound();
+
+        bird.displayInfo();
+        bird.makeSound();
 
         System.out.println();
+        System.out.println("Training Session Started!");
+        System.out.println("==========================");
 
-        System.out.println("=== Employee Details ===");
-        intern.displayInfo();
-        intern.work();
-        System.out.println("Monthly Salary: $" + intern.calculateSalary() + ".0");
+        Trainable tDog = (Trainable) dog;
+        Trainable tBird = (Trainable) bird;
+
+        tDog.performTrick();
+        tBird.performTrick();
     }
 }
